@@ -40,12 +40,18 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        importe = int(self.txt_importe.get())
-        descuento = int(self.txt_descuento.get())
+        importe = self.txt_importe.get()
+        descuento = self.txt_descuento.get()
+
+        importe = int(importe)
+        descuento = int(descuento)
+
         descuento = descuento / 100
         descuento = importe * descuento
         resultado= importe - descuento
-        mensaje = 'El valor de su salario actualizado es de: ', resultado
+
+        mensaje = f'El valor de su salario actualizado es de: {resultado}'
+
         alert('Resultado',mensaje)
         
     

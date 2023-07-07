@@ -36,7 +36,7 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         nombre = prompt('hola rey','ingresa tu nombre')
         self.txt_nombre.delete(0,100)
-        self.txt_nombre.insert(100,nombre)
+        self.txt_nombre.insert(0,nombre)
         
 if __name__ == "__main__":
     app = App()
