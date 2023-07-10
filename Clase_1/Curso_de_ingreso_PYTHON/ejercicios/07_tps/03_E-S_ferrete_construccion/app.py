@@ -71,9 +71,11 @@ class App(customtkinter.CTk):
 
         metros_cuadrados = ancho * largo
         metros_lineales = (ancho*2)+(largo*2)
-        quebracho_grueso = (metros_lineales/250)+4
-        quebracho_fino = (metros_lineales/12)
-        varillas = metros_lineales/2
+        quebracho_grueso = 4
+        quebracho_grueso = quebracho_grueso + (largo // 250) * 2
+        quebracho_grueso = quebracho_grueso + (ancho // 250) * 2
+        quebracho_fino = (metros_lineales / 12) - 4
+        varillas = (metros_lineales / 2) - quebracho_grueso - quebracho_fino
         alambre = metros_lineales * 7
 
         metros_cuadrados = int(metros_cuadrados)
@@ -82,8 +84,6 @@ class App(customtkinter.CTk):
         quebracho_fino = int(quebracho_fino)
         varillas = int(varillas)
         alambre = int(alambre)
-
-        quebracho_fino = quebracho_fino - quebracho_grueso
 
         alert(title="Resultados",message=f"A) Los metros cuadrados del terreno son: {metros_cuadrados} y los metros lineales son:{metros_lineales}\n\nB) La cantidad de quebrachos gruesos es de: {quebracho_grueso} unidades.\n\nC) La cantidad de quebrachos finos es de: {quebracho_fino} unidades.\n\nD) La cantidad de varillas es de: {varillas} unidades.\n\nE) La cantidad de alambre necesaria es de: {alambre} metros.")
 
