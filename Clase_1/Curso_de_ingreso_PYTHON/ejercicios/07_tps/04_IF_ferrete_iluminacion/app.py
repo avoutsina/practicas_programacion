@@ -38,6 +38,7 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
+        """FORMA 1:
         cantidad = self.combobox_cantidad.get()
         marca = self.combobox_marca.get()
 
@@ -70,6 +71,45 @@ class App(customtkinter.CTk):
                             else:
                                 descuento = precio * 0.05
         precio = precio - descuento
+        if precio > 4000:
+            precio = precio - (precio * 0.05)
+
+        alert(message=f'El precio es: ${precio}')"""
+
+        """FORMA 2:"""
+        cantidad = self.combobox_cantidad.get()
+        marca = self.combobox_marca.get()
+        descuento = None
+
+        cantidad = int(cantidad)
+
+        precio = cantidad * 800
+
+        if cantidad >= 6:
+            descuento = precio * 0.5
+
+        elif cantidad == 5:
+            if marca == "ArgentinaLuz":
+                descuento = precio * 0.4
+            else:
+                descuento = precio * 0.3
+
+        elif cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                descuento = precio * 0.25
+            else:
+                descuento = precio * 0.20
+
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                descuento = precio * 0.15
+            elif marca == "FelipeLamparas":
+                descuento = precio * 0.10
+            else:
+                descuento = precio * 0.05
+
+        precio = precio - descuento
+
         if precio > 4000:
             precio = precio - (precio * 0.05)
 
