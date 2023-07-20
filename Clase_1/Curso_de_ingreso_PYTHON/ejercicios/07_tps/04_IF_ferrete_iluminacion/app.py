@@ -77,7 +77,7 @@ class App(customtkinter.CTk):
         alert(message=f'El precio es: ${precio}')"""
 
         """FORMA 2:"""
-        cantidad = self.combobox_cantidad.get()
+        """ cantidad = self.combobox_cantidad.get()
         marca = self.combobox_marca.get()
         descuento = None
 
@@ -113,7 +113,46 @@ class App(customtkinter.CTk):
         if precio > 4000:
             precio = precio - (precio * 0.05)
 
+        alert(message=f'El precio es: ${precio}') """
+        cantidad = int(self.combobox_cantidad.get())
+        marca = self.combobox_marca.get()
+        descuento = None
+        precio = cantidad * 800
+
+        match cantidad:
+            case 6:
+                descuento = precio * 0.5
+            case 5:
+                match marca:
+                    case "ArgentinaLuz":
+                        descuento = precio * 0.4
+                    case _:
+                        descuento = precio * 0.3
+            case 4:
+                match marca:
+                    case "ArgentinaLuz" | "FelipeLamparas":
+                        descuento = precio * 0.25
+                    case _:
+                        descuento = precio * 0.20
+            case 3:
+                match marca:
+                    case "ArgentinaLuz":
+                        descuento = precio * 0.15
+                    case "FelipeLamparas":
+                        descuento = precio * 0.10
+                    case _:
+                        descuento = precio * 0.05
+            case _:
+                descuento = 0
+
+        precio = precio - descuento
+
+        match precio:
+            case 4000:
+                precio = precio - (precio * 0.05)
+
         alert(message=f'El precio es: ${precio}')
+		
                     
     
 if __name__ == "__main__":
