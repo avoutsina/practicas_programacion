@@ -22,9 +22,22 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-    
+        numero_ingresado = prompt("Hola",'ingrese un numero')
+        numeros_divisores = ''
+        contador = 0
+        while numero_ingresado == None or numero_ingresado.isdigit() == False:
+            numero_ingresado = prompt("Hola",'ingrese un numero')
+        numero_ingresado = int(numero_ingresado)
+        for numero in range(1,numero_ingresado+1):
+            if numero_ingresado % numero == 0:
+                numeros_divisores += str(numero)+' '
+                contador +=1 
+            else:
+                pass
+        alert(title='',message=f'Los numeros divisores son: {numeros_divisores}\nLa cantidad de numeros divisores es de: {contador}')
+                
+                
+                
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

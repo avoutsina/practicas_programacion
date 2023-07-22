@@ -24,7 +24,13 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        menor = 0
+        for numero in self.lista_datos:
+            if numero < menor:
+                menor = numero
+            else:
+                continue
+        alert('atencion',f'El numero mas grande es: {menor}')
     
     
 if __name__ == "__main__":
