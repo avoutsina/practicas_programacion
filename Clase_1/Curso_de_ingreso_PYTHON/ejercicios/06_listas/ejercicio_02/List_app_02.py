@@ -31,6 +31,7 @@ class App(customtkinter.CTk):
             alert(title="Alerta", message=f"Valor: {i}")
         
     def btn_cargar_on_click(self):
+        self.lista_datos.clear()
         for i in range(3):
             numero_ingresado = prompt("Cargar","Ingrese in numero")
             while numero_ingresado == None or numero_ingresado.isdigit() == False:

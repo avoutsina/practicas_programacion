@@ -24,10 +24,12 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        menor = 0
+        menor = None
+        primera_vez = True
         for numero in self.lista_datos:
-            if numero < menor:
+            if primera_vez or numero < menor:
                 menor = numero
+                primera_vez = False
             else:
                 continue
         alert('atencion',f'El numero mas grande es: {menor}')
